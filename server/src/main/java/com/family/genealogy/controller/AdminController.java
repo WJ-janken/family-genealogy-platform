@@ -26,6 +26,7 @@ public class AdminController {
     private final AuditService auditService;
     private final LocalChronicleService chronicleService;
     private final CareerRecordService careerService;
+    private final GenerationPoetryService generationPoetryService;
 
     // ==================== 统计 ====================
 
@@ -176,6 +177,16 @@ public class AdminController {
     public Result<Void> updateConfig(@RequestBody Map<String, Object> config) {
         // TODO: 保存到 sys_config 表
         return Result.success();
+    }
+    
+    // ==================== 字辈诗管理 ====================
+    
+    /**
+     * 根据姓氏获取字辈诗
+     */
+    @GetMapping("/generation-poetry/by-surname/{surname}")
+    public Result<List<GenerationPoetry>> getGenerationPoetryBySurname(@PathVariable String surname) {
+        return Result.success(generationPoetryService.getBySurname(surname));
     }
 
     // ==================== 操作日志 ====================

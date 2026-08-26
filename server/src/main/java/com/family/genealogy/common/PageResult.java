@@ -22,4 +22,16 @@ public class PageResult<T> {
         result.setPageSize(pageSize);
         return result;
     }
+    
+    /**
+     * 从MyBatis-Plus的Page对象转换为PageResult
+     */
+    public static <T> PageResult<T> from(com.baomidou.mybatisplus.extension.plugins.pagination.Page<T> page) {
+        PageResult<T> result = new PageResult<>();
+        result.setList(page.getRecords());
+        result.setTotal(page.getTotal());
+        result.setPage((int) page.getCurrent());
+        result.setPageSize((int) page.getSize());
+        return result;
+    }
 }

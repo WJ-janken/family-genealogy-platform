@@ -115,6 +115,18 @@ const routes: RouteRecordRaw[] = [
         meta: { title: '操作日志' }
       }
     ]
+  },
+  {
+    path: '/generation-poetry',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'GenerationPoetry',
+        component: () => import('@/views/genealogy/GenerationPoetryView.vue'),
+        meta: { title: '字辈诗管理', icon: 'CollectionTag' }
+      }
+    ]
   }
 ]
 

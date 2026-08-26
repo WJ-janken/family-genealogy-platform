@@ -1,0 +1,69 @@
+<view class="search-page">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="输入姓名搜索族人"
+        value="{{keyword}}"
+        bindinput="onInput"
+        confirm-type="search"
+      />
+    </view>
+  </view>
+
+  <!-- 筛选条件 -->
+  <scroll-view class="filter-bar" scroll-x>
+    <picker mode="selector" range="{{generations}}" bindchange="onGenerationChange">
+      <view class="filter-tag {{generation ? 'active' : ''}}">
+        {{generation || '世代'}}
+        <text class="filter-arrow">▾</text>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{branches}}" bindchange="onBranchChange">
+      <view class="filter-tag {{branch ? 'active' : ''}}">
+        {{branch || '房支'}}
+        <text class="filter-arrow">▾</text>
+      </view>
+    </picker>
+    <picker mode="selector" range="{{['全部', '男', '女']}}" bindchange="onGenderChange">
+      <view class="filter-tag {{gender ? 'active' : ''}}">
+        {{gender === 'M' ? '男' : gender === 'F' ? '女' : '性别'}}
+        <text class="filter-arrow">▾</text>
+      </view>
+    </picker>
+  </scroll-view>
+
+  <!-- 搜索结果 -->
+  <view class="results-list">
+    <view class="result-item" wx:for="{{results}}" wx:key="id">
+      <view class="member-avatar">
+        <image wx:if="{{item.avatarUrl}}" src="{{item.avatarUrl}}" mode="aspectFill"></image>
+        <view wx:else class="avatar-placeholder">{{item.name[0]}}</view>
+      </view>
+      <view class="member-info" bindtap="viewDetail" data-id="{{item.id}}">
+        <view class="member-name">{{item.name}}<text wx:if="{{item.aliasName}}" class="alias-name">（{{item.aliasName}}）</text></view>
+        <view class="member-meta">
+          <text wx:if="{{item.generationChar}}">{{item.generationChar}}字辈 · </text>
+          <text>第{{item.generation}}世</text>
+          <text wx:if="{{item.branch}}"> · {{item.branch}}</text>
+        </view>
+      </view>
+      <view class="btn-locate" bindtap="locateOnTree" data-id="{{item.id}}">
+        <text>定位</text>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{!loading && results.length === 0 && keyword}}">
+      <text class="empty-icon">📭</text>
+      <text class="empty-text">未找到相关族人</text>
+    </view>
+
+    <!-- 加载更多 -->
+    <view class="loading-more" wx:if="{{loading}}">
+      <text>加载中...</text>
+    </view>
+  </view>
+</view>

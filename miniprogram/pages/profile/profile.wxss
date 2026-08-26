@@ -1,0 +1,107 @@
+.profile-page {
+  min-height: 100vh;
+  background: #FDF8F0;
+  padding-bottom: 40rpx;
+}
+
+.user-section {
+  padding: 40rpx 30rpx;
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  border-radius: 0 0 32rpx 32rpx;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255, 255, 255, 0.5);
+}
+
+.user-info {
+  margin-left: 24rpx;
+}
+
+.user-name {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.user-role {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 8rpx;
+  padding: 4rpx 16rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16rpx;
+  display: inline-block;
+}
+
+.login-card {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.login-avatar {
+  font-size: 80rpx;
+  margin-right: 20rpx;
+}
+
+.login-text {
+  font-size: 32rpx;
+  color: #FFFFFF;
+}
+
+.menu-section {
+  margin: 24rpx 30rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 24rpx;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  font-size: 36rpx;
+  margin-right: 20rpx;
+}
+
+.menu-title {
+  flex: 1;
+  font-size: 28rpx;
+  color: #2C2C2C;
+}
+
+.menu-arrow {
+  font-size: 32rpx;
+  color: #CCCCCC;
+}
+
+.logout-section {
+  padding: 40rpx 30rpx;
+}
+
+.btn-logout {
+  background: #FFFFFF;
+  color: #F44336;
+  border: 1rpx solid #F44336;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  padding: 20rpx;
+}

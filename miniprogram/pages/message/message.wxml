@@ -1,0 +1,45 @@
+<view class="message-page">
+  <!-- 顶部标签栏 -->
+  <view class="tab-bar">
+    <view class="tab-item {{activeTab === item.key ? 'active' : ''}}" 
+          wx:for="{{tabs}}" wx:key="key" 
+          bindtap="switchTab" data-tab="{{item.key}}">
+      <text>{{item.label}}</text>
+    </view>
+    <view class="tab-action" bindtap="markAllRead">
+      <text>全部已读</text>
+    </view>
+  </view>
+
+  <!-- 消息列表 -->
+  <scroll-view class="message-list" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="message-item {{item.read ? '' : 'unread'}}" 
+          wx:for="{{messages}}" wx:key="id"
+          bindtap="viewDetail" data-item="{{item}}">
+      <view class="msg-icon {{item.type === 'AUDIT' ? 'audit' : 'system'}}">
+        <text wx:if="{{item.type === 'AUDIT'}}">✓</text>
+        <text wx:else>📢</text>
+      </view>
+      <view class="msg-content">
+        <view class="msg-header">
+          <text class="msg-title">{{item.title}}</text>
+          <view class="msg-dot" wx:if="{{!item.read}}"></view>
+        </view>
+        <view class="msg-desc">{{item.content}}</view>
+        <view class="msg-time">{{item.createdAt}}</view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{!loading && messages.length === 0}}">
+      <view class="empty-icon">📭</view>
+      <text class="empty-text">暂无消息</text>
+    </view>
+
+    <!-- 加载中 -->
+    <view class="loading-state" wx:if="{{loading}}">
+      <view class="loading-dot"></view>
+      <text>加载中...</text>
+    </view>
+  </scroll-view>
+</view>

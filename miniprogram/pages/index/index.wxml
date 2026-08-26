@@ -1,0 +1,70 @@
+<view class="page-index">
+  <!-- 顶部家族信息 -->
+  <view class="header">
+    <view class="header-bg"></view>
+    <view class="header-content">
+      <view class="family-title">{{familyName || '家族族谱'}}</view>
+      <view class="hall-name" wx:if="{{hallName}}">{{hallName}}</view>
+    </view>
+    <view class="message-icon" bindtap="navigateToMessage">
+      <image src="/assets/icons/bell.png" class="icon-bell"></image>
+    </view>
+  </view>
+
+  <!-- 统计卡片 -->
+  <view class="stats-section">
+    <view class="stats-card">
+      <view class="stat-item">
+        <view class="stat-number">{{statistics.totalMembers}}</view>
+        <view class="stat-label">族人总数</view>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <view class="stat-number">{{statistics.generations}}</view>
+        <view class="stat-label">世代数</view>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <view class="stat-number">{{statistics.branches}}</view>
+        <view class="stat-label">房支数</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷功能入口 -->
+  <view class="quick-actions">
+    <view class="action-item" bindtap="navigateToTree">
+      <view class="action-icon tree-icon">🌳</view>
+      <view class="action-text">族谱树</view>
+    </view>
+    <view class="action-item" bindtap="navigateToSearch">
+      <view class="action-icon search-icon">🔍</view>
+      <view class="action-text">搜索</view>
+    </view>
+    <view class="action-item" bindtap="navigateToChronicle">
+      <view class="action-icon chronicle-icon">📜</view>
+      <view class="action-text">地方志</view>
+    </view>
+    <view class="action-item" bindtap="navigateToSubmit">
+      <view class="action-icon submit-icon">✏️</view>
+      <view class="action-text">提交数据</view>
+    </view>
+  </view>
+
+  <!-- 最近更新 -->
+  <view class="recent-section">
+    <view class="section-title">最近更新</view>
+    <view class="timeline" wx:if="{{recentUpdates.length > 0}}">
+      <view class="timeline-item" wx:for="{{recentUpdates}}" wx:key="id">
+        <view class="timeline-dot"></view>
+        <view class="timeline-content">
+          <view class="timeline-text">{{item.description}}</view>
+          <view class="timeline-time">{{item.createdAt}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="empty-state" wx:else>
+      <view class="empty-text">暂无更新记录</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,1 @@
+Page({ data: { list: [], loading: true }, onLoad() { this.loadList(); }, async loadList() { const { get } = require('../../utils/request'); try { const list = await get('/chronicles'); this.setData({ list, loading: false }); } catch(e) { this.setData({ loading: false }); } }, viewDetail(e) { wx.navigateTo({ url: `/pages/chronicle/detail?id=${e.currentTarget.dataset.id}` }); } });

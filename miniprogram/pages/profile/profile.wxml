@@ -1,0 +1,39 @@
+<view class="profile-page">
+  <!-- 用户信息区 -->
+  <view class="user-section">
+    <view class="user-card" wx:if="{{isLoggedIn}}">
+      <image class="user-avatar" src="{{userInfo.avatarUrl || '/assets/icons/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="user-info">
+        <view class="user-name">{{userInfo.nickname || '族人'}}</view>
+        <view class="user-role">{{userInfo.roleName || '普通成员'}}</view>
+      </view>
+    </view>
+    <view class="login-card" wx:else bindtap="handleLogin">
+      <view class="login-avatar">👤</view>
+      <view class="login-text">点击登录</view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-item" wx:for="{{menuList}}" wx:key="id" bindtap="navigateTo" data-url="{{item.url}}">
+      <view class="menu-icon">{{item.icon}}</view>
+      <view class="menu-title">{{item.title}}</view>
+      <view class="menu-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 设置 -->
+  <view class="menu-section">
+    <view class="menu-item" wx:for="{{settingList}}" wx:key="id" bindtap="navigateTo" data-url="{{item.url}}">
+      <view class="menu-icon">{{item.icon}}</view>
+      <view class="menu-title">{{item.title}}</view>
+      <view class="menu-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-section" wx:if="{{isLoggedIn}}">
+    <button class="btn-logout" bindtap="handleLogout">退出登录</button>
+  </view>
+</view>

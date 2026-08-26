@@ -1,0 +1,7 @@
+.chronicle-page { padding: 30rpx; min-height: 100vh; background: #FDF8F0; }
+.chronicle-item { display: flex; background: #FFF; border-radius: 16rpx; margin-bottom: 20rpx; overflow: hidden; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04); }
+.chronicle-cover { width: 200rpx; height: 150rpx; flex-shrink: 0; }
+.chronicle-info { flex: 1; padding: 24rpx; display: flex; flex-direction: column; justify-content: center; }
+.chronicle-title { font-size: 30rpx; font-weight: 500; color: #2C2C2C; }
+.chronicle-category { font-size: 24rpx; color: #999; margin-top: 8rpx; }
+.empty-state { text-align: center; padding: 120rpx 0; color: #999; }

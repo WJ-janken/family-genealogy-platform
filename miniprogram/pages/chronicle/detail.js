@@ -1,0 +1,1 @@
+Page({ data: { detail: null }, onLoad(options) { if(options.id) this.loadDetail(options.id); }, async loadDetail(id) { const { get } = require('../../utils/request'); try { const detail = await get(`/chronicles/${id}`); this.setData({ detail }); } catch(e) { wx.showToast({ title: '加载失败', icon: 'none' }); } } });

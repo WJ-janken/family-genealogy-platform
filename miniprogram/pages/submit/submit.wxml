@@ -1,0 +1,45 @@
+<view class="submit-page">
+  <view class="form-card">
+    <view class="form-title">{{type === 'create' ? '新增族人' : '修改信息'}}</view>
+    <view class="form-item">
+      <text class="form-label">谱名 *</text>
+      <input class="form-input" placeholder="辈分名，如郑志泉" value="{{form.name}}" bindinput="onInputChange" data-field="name"/>
+    </view>
+    <view class="form-item">
+      <text class="form-label">俗名</text>
+      <input class="form-input" placeholder="户口名/日常用名（如有）" value="{{form.aliasName}}" bindinput="onInputChange" data-field="aliasName"/>
+    </view>
+    <view class="form-item">
+      <text class="form-label">辈分字</text>
+      <input class="form-input" placeholder="如：志" value="{{form.generationChar}}" bindinput="onInputChange" data-field="generationChar"/>
+    </view>
+    <view class="form-item">
+      <text class="form-label">性别</text>
+      <picker mode="selector" range="{{['男','女']}}" bindchange="onGenderChange">
+        <view class="form-input picker">{{form.gender === 'M' ? '男' : '女'}} ▾</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">世代</text>
+      <input class="form-input" type="number" placeholder="第几世" value="{{form.generation}}" bindinput="onInputChange" data-field="generation"/>
+    </view>
+    <view class="form-item">
+      <text class="form-label">房支</text>
+      <input class="form-input" placeholder="所属房支" value="{{form.branch}}" bindinput="onInputChange" data-field="branch"/>
+    </view>
+    <view class="form-item">
+      <text class="form-label">出生日期</text>
+      <picker mode="date" bindchange="onDateChange">
+        <view class="form-input picker">{{form.birthDate || '请选择'}} ▾</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">生平简介</text>
+      <textarea class="form-textarea" placeholder="请输入生平简介" value="{{form.biography}}" bindinput="onInputChange" data-field="biography"/>
+    </view>
+  </view>
+  <view class="submit-tip">提交后需管理员审核通过方可生效</view>
+  <button class="btn-submit" bindtap="submitForm" disabled="{{submitting}}">
+    {{submitting ? '提交中...' : '提交审核'}}
+  </button>
+</view>

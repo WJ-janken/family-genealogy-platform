@@ -1,0 +1,8 @@
+<view class="detail-page" wx:if="{{detail}}">
+  <image class="cover" src="{{detail.coverUrl}}" mode="widthFix" wx:if="{{detail.coverUrl}}"></image>
+  <view class="content-wrap">
+    <view class="title">{{detail.title}}</view>
+    <view class="category">{{detail.category}}</view>
+    <rich-text class="content" nodes="{{detail.content}}"></rich-text>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<view class="chronicle-page">
+  <view class="chronicle-item" wx:for="{{list}}" wx:key="id" bindtap="viewDetail" data-id="{{item.id}}">
+    <image class="chronicle-cover" src="{{item.coverUrl}}" mode="aspectFill" wx:if="{{item.coverUrl}}"></image>
+    <view class="chronicle-info">
+      <view class="chronicle-title">{{item.title}}</view>
+      <view class="chronicle-category">{{item.category}}</view>
+    </view>
+  </view>
+  <view class="empty-state" wx:if="{{!loading && list.length === 0}}">
+    <text>暂无地方志记录</text>
+  </view>
+</view>

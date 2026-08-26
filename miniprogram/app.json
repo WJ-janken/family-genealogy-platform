@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tree/tree",
+    "pages/search/search",
+    "pages/profile/profile",
+    "pages/member-detail/member-detail",
+    "pages/chronicle/chronicle",
+    "pages/chronicle/detail",
+    "pages/submit/submit",
+    "pages/message/message"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#8B4513",
+    "navigationBarTitleText": "家族族谱",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FDF8F0",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#8B4513",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/tree/tree",
+        "text": "族谱树",
+        "iconPath": "assets/icons/tree.png",
+        "selectedIconPath": "assets/icons/tree-active.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "assets/icons/search.png",
+        "selectedIconPath": "assets/icons/search-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/icons/profile.png",
+        "selectedIconPath": "assets/icons/profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

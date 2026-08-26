@@ -1,0 +1,168 @@
+.message-page {
+  min-height: 100vh;
+  background: #FDF8F0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 标签栏 */
+.tab-bar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background: #FFFFFF;
+  border-bottom: 1rpx solid #F0F0F0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tab-item {
+  padding: 12rpx 24rpx;
+  font-size: 26rpx;
+  color: #666;
+  border-radius: 24rpx;
+  margin-right: 16rpx;
+  transition: all 0.2s;
+}
+
+.tab-item.active {
+  background: #8B4513;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.tab-action {
+  margin-left: auto;
+  font-size: 24rpx;
+  color: #8B4513;
+  padding: 8rpx 16rpx;
+}
+
+/* 消息列表 */
+.message-list {
+  flex: 1;
+  padding: 20rpx 30rpx;
+}
+
+.message-item {
+  display: flex;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 28rpx 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s;
+}
+
+.message-item:active {
+  transform: scale(0.98);
+}
+
+.message-item.unread {
+  border-left: 6rpx solid #8B4513;
+}
+
+.msg-icon {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  font-size: 28rpx;
+}
+
+.msg-icon.audit {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+  color: #FFFFFF;
+}
+
+.msg-icon.system {
+  background: linear-gradient(135deg, #2196F3, #42A5F5);
+  color: #FFFFFF;
+}
+
+.msg-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.msg-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.msg-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #2C2C2C;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.msg-dot {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: #F44336;
+  margin-left: 12rpx;
+  flex-shrink: 0;
+}
+
+.msg-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.msg-time {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 120rpx 0;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 加载状态 */
+.loading-state {
+  text-align: center;
+  padding: 40rpx 0;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.loading-dot {
+  width: 32rpx;
+  height: 32rpx;
+  border: 3rpx solid #D4A574;
+  border-top-color: transparent;
+  border-radius: 50%;
+  margin: 0 auto 12rpx;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,11 @@
+.submit-page { min-height: 100vh; background: #FDF8F0; padding: 30rpx; padding-bottom: 120rpx; }
+.form-card { background: #FFF; border-radius: 16rpx; padding: 30rpx; box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04); }
+.form-title { font-size: 32rpx; font-weight: 600; color: #2C2C2C; margin-bottom: 30rpx; }
+.form-item { margin-bottom: 24rpx; }
+.form-label { font-size: 26rpx; color: #666; margin-bottom: 12rpx; display: block; }
+.form-input { background: #F8F8F8; border-radius: 12rpx; padding: 20rpx 24rpx; font-size: 28rpx; }
+.form-input.picker { color: #2C2C2C; }
+.form-textarea { background: #F8F8F8; border-radius: 12rpx; padding: 20rpx 24rpx; font-size: 28rpx; width: 100%; min-height: 200rpx; box-sizing: border-box; }
+.submit-tip { text-align: center; font-size: 24rpx; color: #999; margin: 30rpx 0; }
+.btn-submit { background: linear-gradient(135deg, #8B4513, #A0522D); color: #FFF; border-radius: 12rpx; font-size: 30rpx; padding: 24rpx; border: none; }
+.btn-submit[disabled] { opacity: 0.6; }

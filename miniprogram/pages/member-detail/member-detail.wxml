@@ -1,0 +1,94 @@
+<view class="detail-page" wx:if="{{!loading}}">
+  <!-- 头部信息 -->
+  <view class="header-section">
+    <view class="header-bg"></view>
+    <view class="avatar-wrap">
+      <image wx:if="{{member.avatarUrl}}" class="avatar" src="{{member.avatarUrl}}" mode="aspectFill"></image>
+      <view wx:else class="avatar-placeholder">{{member.name[0]}}</view>
+    </view>
+    <view class="member-name">{{member.name}}</view>
+    <view class="member-alias" wx:if="{{member.aliasName}}">（{{member.aliasName}}）</view>
+    <view class="member-tags">
+      <text class="tag" wx:if="{{member.generationChar}}">{{member.generationChar}}字辈</text>
+      <text class="tag">第{{member.generation}}世</text>
+      <text class="tag" wx:if="{{member.branch}}">{{member.branch}}</text>
+      <text class="tag">{{member.gender === 'M' ? '男' : '女'}}</text>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="card">
+    <view class="card-title">基本信息</view>
+    <view class="info-row">
+      <text class="info-label">谱名</text>
+      <text class="info-value">{{member.name}}</text>
+    </view>
+    <view class="info-row" wx:if="{{member.aliasName}}">
+      <text class="info-label">俗名</text>
+      <text class="info-value">{{member.aliasName}}</text>
+    </view>
+    <view class="info-row" wx:if="{{member.generationChar}}">
+      <text class="info-label">辈分</text>
+      <text class="info-value">{{member.generationChar}}字辈</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">出生日期</text>
+      <text class="info-value">{{member.birthDate || '未知'}}</text>
+    </view>
+    <view class="info-row" wx:if="{{member.deathDate}}">
+      <text class="info-label">卒于</text>
+      <text class="info-value">{{member.deathDate}}</text>
+    </view>
+    <view class="info-row" wx:if="{{relations.spouse}}">
+      <text class="info-label">配偶</text>
+      <text class="info-value link" bindtap="viewRelation" data-id="{{relations.spouse.id}}">{{relations.spouse.name}}</text>
+    </view>
+  </view>
+
+  <!-- 生平简介 -->
+  <view class="card" wx:if="{{member.biography}}">
+    <view class="card-title">生平简介</view>
+    <view class="biography">{{member.biography}}</view>
+  </view>
+
+  <!-- 任职履历 -->
+  <view class="card" wx:if="{{careers.length > 0}}">
+    <view class="card-title">任职履历</view>
+    <view class="career-timeline">
+      <view class="career-item" wx:for="{{careers}}" wx:key="id">
+        <view class="career-dot"></view>
+        <view class="career-content">
+          <view class="career-position">{{item.position}}</view>
+          <view class="career-org">{{item.organization}}</view>
+          <view class="career-period">{{item.startDate}} - {{item.endDate || '至今'}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 家族关系 -->
+  <view class="card" wx:if="{{relations}}">
+    <view class="card-title">家族关系</view>
+    <view class="relation-item" wx:if="{{relations.father}}" bindtap="viewRelation" data-id="{{relations.father.id}}">
+      <text class="relation-label">父亲</text>
+      <text class="relation-name">{{relations.father.name}}</text>
+    </view>
+    <view class="relation-item" wx:if="{{relations.mother}}" bindtap="viewRelation" data-id="{{relations.mother.id}}">
+      <text class="relation-label">母亲</text>
+      <text class="relation-name">{{relations.mother.name}}</text>
+    </view>
+    <view class="relation-item" wx:for="{{relations.children}}" wx:key="id" bindtap="viewRelation" data-id="{{item.id}}">
+      <text class="relation-label">{{item.gender === 'M' ? '子' : '女'}}</text>
+      <text class="relation-name">{{item.name}}</text>
+    </view>
+  </view>
+
+  <!-- 底部操作 -->
+  <view class="bottom-bar">
+    <button class="btn-edit" bindtap="submitEdit">提交修改</button>
+  </view>
+</view>
+
+<view class="loading-state" wx:if="{{loading}}">
+  <text>加载中...</text>
+</view>

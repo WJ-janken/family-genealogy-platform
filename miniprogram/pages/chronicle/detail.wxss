@@ -1,0 +1,6 @@
+.detail-page { min-height: 100vh; background: #FDF8F0; }
+.cover { width: 100%; }
+.content-wrap { padding: 30rpx; }
+.title { font-size: 36rpx; font-weight: 600; color: #2C2C2C; }
+.category { font-size: 24rpx; color: #8B4513; margin-top: 12rpx; padding: 4rpx 16rpx; background: rgba(139,69,19,0.1); border-radius: 8rpx; display: inline-block; }
+.content { margin-top: 30rpx; font-size: 28rpx; line-height: 1.8; color: #333; }

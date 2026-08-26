@@ -1,0 +1,152 @@
+.search-page {
+  min-height: 100vh;
+  background: #FDF8F0;
+}
+
+.search-bar {
+  padding: 20rpx 30rpx;
+  background: #FFFFFF;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  background: #F5F5F5;
+  border-radius: 40rpx;
+  padding: 16rpx 24rpx;
+}
+
+.search-icon {
+  font-size: 28rpx;
+  margin-right: 12rpx;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.filter-bar {
+  display: flex;
+  padding: 16rpx 30rpx;
+  background: #FFFFFF;
+  border-top: 1rpx solid #F0F0F0;
+  white-space: nowrap;
+}
+
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 12rpx 24rpx;
+  border-radius: 24rpx;
+  background: #F5F5F5;
+  font-size: 24rpx;
+  color: #666666;
+  margin-right: 16rpx;
+}
+
+.filter-tag.active {
+  background: rgba(139, 69, 19, 0.1);
+  color: #8B4513;
+}
+
+.filter-arrow {
+  margin-left: 8rpx;
+  font-size: 20rpx;
+}
+
+.results-list {
+  padding: 20rpx 30rpx;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.member-avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.member-avatar image {
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #8B4513, #D4A574);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.member-info {
+  flex: 1;
+}
+
+.member-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #2C2C2C;
+}
+
+.alias-name {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #999;
+}
+
+.member-meta {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 8rpx;
+}
+
+.btn-locate {
+  padding: 12rpx 24rpx;
+  border-radius: 20rpx;
+  background: rgba(139, 69, 19, 0.1);
+  color: #8B4513;
+  font-size: 24rpx;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 120rpx 0;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.loading-more {
+  text-align: center;
+  padding: 30rpx;
+  color: #999999;
+  font-size: 24rpx;
+}

@@ -1,0 +1,90 @@
+/* 全局样式 */
+page {
+  font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 28rpx;
+  color: #2C2C2C;
+  background-color: #FDF8F0;
+  line-height: 1.6;
+}
+
+/* 主题色变量 */
+:root {
+  --primary-color: #8B4513;
+  --primary-light: #A0522D;
+  --primary-lighter: #D4A574;
+  --bg-color: #FDF8F0;
+  --bg-white: #FFFFFF;
+  --bg-dark: #1A1A2E;
+  --text-primary: #2C2C2C;
+  --text-secondary: #666666;
+  --text-white: #FFFFFF;
+  --success: #4CAF50;
+  --danger: #F44336;
+  --warning: #FF9800;
+  --info: #2196F3;
+}
+
+/* 通用容器 */
+.container {
+  padding: 30rpx;
+}
+
+/* 卡片样式 */
+.card {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(139, 69, 19, 0.08);
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  color: #FFFFFF;
+  border-radius: 12rpx;
+  padding: 20rpx 40rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  border: none;
+  text-align: center;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+/* 文字省略 */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Flex 布局 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-1 {
+  flex: 1;
+}

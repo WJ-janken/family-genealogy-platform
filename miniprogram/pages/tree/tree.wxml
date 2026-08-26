@@ -1,0 +1,115 @@
+<view class="tree-page">
+  <!-- 顶部工具栏 -->
+  <view class="toolbar">
+    <view class="toolbar-left">
+      <view class="btn-back" bindtap="goBack">
+        <text class="icon-back">←</text>
+      </view>
+      <text class="toolbar-title">族谱树</text>
+    </view>
+    <view class="toolbar-right">
+      <view class="toolbar-btn" bindtap="openSearch">
+        <text>🔍</text>
+      </view>
+      <view class="toolbar-btn" bindtap="toggleLayout">
+        <text>⇄</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Canvas 渲染区域 -->
+  <canvas
+    type="2d"
+    id="treeCanvas"
+    class="tree-canvas"
+    style="width: {{canvasWidth}}px; height: {{canvasHeight}}px;"
+    bindtouchstart="onTouchStart"
+    bindtouchmove="onTouchMove"
+    bindtouchend="onTouchEnd"
+  ></canvas>
+
+  <!-- 右下角浮动按钮 -->
+  <view class="float-buttons">
+    <view class="float-btn" bindtap="zoomIn">
+      <text>+</text>
+    </view>
+    <view class="float-btn" bindtap="zoomOut">
+      <text>−</text>
+    </view>
+    <view class="float-btn" bindtap="resetView">
+      <text>⌂</text>
+    </view>
+    <view class="float-btn" bindtap="exportImage">
+      <text>📷</text>
+    </view>
+  </view>
+
+  <!-- 底部信息条 -->
+  <view class="info-bar">
+    <text class="info-text">缩放: {{scalePercent}}%</text>
+    <text class="info-text">{{orientation === 'vertical' ? '竖向' : '横向'}}布局</text>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-mask" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载族谱数据中...</text>
+  </view>
+
+  <!-- 节点详情弹窗 -->
+  <view class="detail-popup {{showDetail ? 'show' : ''}}" wx:if="{{showDetail}}">
+    <view class="detail-mask" bindtap="closeDetail"></view>
+    <view class="detail-content">
+      <view class="detail-header">
+        <view class="detail-avatar {{detailNode.gender === 'F' ? 'female' : 'male'}}">
+          <image wx:if="{{detailNode.avatarUrl}}" src="{{detailNode.avatarUrl}}" mode="aspectFill" />
+          <text wx:else class="avatar-text">{{detailNode.name[0]}}</text>
+        </view>
+        <view class="detail-info">
+          <text class="detail-name">{{detailNode.name}}</text>
+          <view class="detail-tags">
+            <text class="tag" wx:if="{{detailNode.generation}}">第{{detailNode.generation}}世</text>
+            <text class="tag" wx:if="{{detailNode.branch}}">{{detailNode.branch}}</text>
+            <text class="tag gender-tag">{{detailNode.gender === 'F' ? '女' : '男'}}</text>
+          </view>
+        </view>
+        <view class="detail-close" bindtap="closeDetail">✕</view>
+      </view>
+      <view class="detail-body">
+        <view class="detail-row" wx:if="{{detailNode.birthDate}}">
+          <text class="row-label">出生</text>
+          <text class="row-value">{{detailNode.birthDate}}</text>
+        </view>
+        <view class="detail-row" wx:if="{{detailNode.deathDate}}">
+          <text class="row-label">逝世</text>
+          <text class="row-value">{{detailNode.deathDate}}</text>
+        </view>
+      </view>
+      <view class="detail-footer">
+        <view class="btn-view-detail" bindtap="viewFullDetail">查看完整详情</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索弹窗 -->
+  <view class="search-popup {{showSearch ? 'show' : ''}}" wx:if="{{showSearch}}">
+    <view class="search-mask" bindtap="closeSearch"></view>
+    <view class="search-panel">
+      <view class="search-header">
+        <input class="search-input" placeholder="输入姓名搜索" value="{{searchKeyword}}" bindinput="onSearchInput" bindconfirm="doSearch" focus="{{showSearch}}" />
+        <view class="search-btn" bindtap="doSearch">搜索</view>
+        <view class="search-close" bindtap="closeSearch">取消</view>
+      </view>
+      <scroll-view class="search-results" scroll-y>
+        <view class="search-item" wx:for="{{searchResults}}" wx:key="id" bindtap="locateNode" data-id="{{item.id}}">
+          <text class="item-name">{{item.name}}</text>
+          <text class="item-info">第{{item.generation}}世 · {{item.branch || ''}}</text>
+          <text class="item-locate">定位</text>
+        </view>
+        <view class="search-empty" wx:if="{{searchResults.length === 0 && searchKeyword}}">
+          <text>未找到匹配结果</text>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

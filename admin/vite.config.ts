@@ -28,7 +28,11 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'http://localhost:8080',
-        changeOrigin: true
+        changeOrigin: true,
+        timeout: 60000, // 增加超时时间到60秒
+        onProxyReq: (proxyReq, req, res) => {
+          console.log(`Proxying ${req.method} ${req.url} to ${process.env.VITE_API_BASE_URL || 'http://localhost:8080'}`);
+        }
       }
     }
   }

@@ -39,5 +39,4 @@ INSERT INTO member_closure (ancestor_id, descendant_id, depth) VALUES
 -- 字辈诗数据
 INSERT INTO sys_generation_poetry (surname, branch_name, title, generation_sequence, interpretation, start_generation, enabled, creator_id, remark) VALUES
 ('张', '老四房', '张氏字辈诗', '国正天心顺官清民自安妻贤夫祸少子孝父心宽', '此诗寓意国家政治清明，家庭和睦，教育子女孝道的重要性', 1, 1, 1, '张家老四房传统字辈诗'),
-('李', '陇西堂', '李氏字辈歌', '继述承先志光昭懋德昌文章华国运诗礼传书香', '体现李氏家族重视文化传承，以诗书礼乐教化后代的传统', 1, 1, 1, '陇西李氏经典字辈歌'),
-('王', '太原堂', '王氏字辈诗', '文武成康定乾坤永太平', '寓意国家安定，社会太平，家族兴旺', 1, 1, 1, '太原王氏字辈序列');
+('李', '陇西堂', '李氏字辈歌', '继述承先志光昭懋德昌文章华国运诗礼传书香', '体现李氏家族重视文化传承，以诗书礼乐教化后代的传统', 1, 1, 1, '陇西李氏经典字辈歌');
